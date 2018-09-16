@@ -1,11 +1,11 @@
 const firebase = require("firebase");
-const config = {
-  apiKey: "AIzaSyDT4-H0q2LgRNg_93DnV7PFcBBkb7X8l2Q",
-  authDomain: "bitcoinbot-c4ed8.firebaseapp.com",
-  databaseURL: "https://bitcoinbot-c4ed8.firebaseio.com",
-  projectId: "bitcoinbot-c4ed8",
-  storageBucket: "bitcoinbot-c4ed8.appspot.com",
-  messagingSenderId: "101268409371"
+var config = {
+  apiKey: "AIzaSyDbaeTmG3kK_hC3CqVsb7MXEWNZSU9JvJM",
+  authDomain: "sexapi-52b2c.firebaseapp.com",
+  databaseURL: "https://sexapi-52b2c.firebaseio.com",
+  projectId: "sexapi-52b2c",
+  storageBucket: "sexapi-52b2c.appspot.com",
+  messagingSenderId: "394222519043"
 };
 
 /**
@@ -59,6 +59,7 @@ class FirebaseDatabase {
           resolve();
         }
       } catch (err) {
+        console.log(err);
         this.onDbInit();
         resolve();
       }
@@ -77,12 +78,7 @@ class FirebaseDatabase {
   /**
    * Callback when DB INIT
    */
-  onDbInit() {
-    this.table.projects = this.model("projects");
-    this.table.settings = this.model("settings");
-    this.table.training = this.model("training");
-    this.table.logs = this.model("logs");
-  }
+  onDbInit() {}
 }
 /**
  * Return Model
