@@ -1,16 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom";
+const firebaseModule = require("./modules/firebase");
 
 import "./styles.css";
-
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+import store from "./store";
+import { connect, Provider } from "react-redux";
+class App extends React.Component {
+  componentDidMount() {
+    this.totalMarket();
+  }
+  totalMarket() {
+    firebaseModule
+      .model("market")
+      .fetchLikeObject()
+      .then(result => console.log(result));
+  }
+  render() {
+    return <div />;
+  }
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const Root = connect(state => state)(App);
+firebaseModule.init().then(
+  ReactDOM.render(
+    <Provider store={store}>
+      <Root />
+    </Provider>,
+    rootElement
+  )
+);
