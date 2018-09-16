@@ -1,2 +1,0 @@
-# bitcoin
-Created with CodeSandbox
